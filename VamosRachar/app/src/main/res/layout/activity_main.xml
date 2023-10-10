@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:outlineAmbientShadowColor="#000000"
+    android:outlineSpotShadowColor="#000000"
     android:textAlignment="center"
     tools:context=".MainActivity">
 
@@ -18,43 +20,6 @@
         app:layout_constraintBottom_toTopOf="@+id/edtConta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btFalar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:height="20dp"
-        android:maxHeight="60dp"
-        android:minHeight="50dp"
-        android:minWidth="100dp"
-        android:textSize="16sp"
-        android:onClick="clickFalar"
-        android:contentDescription="Botão para falar o valor por pessoa"
-        android:text="Falar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.298" />
-
-    <Button
-        android:id="@+id/btShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:height="20dp"
-        android:contentDescription="Botão para compartilhar"
-        android:maxHeight="60dp"
-        android:minWidth="100dp"
-        android:minHeight="50dp"
-        android:textSize="16sp"
-        android:onClick="clickFalar"
-        android:text="Compartilhar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btFalar"
-        app:layout_constraintVertical_bias="0.261" />
 
     <EditText
         android:id="@+id/edtConta"
@@ -92,7 +57,6 @@
         android:layout_height="53dp"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
-        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,5 +75,34 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+
+    <ImageButton
+        android:id="@+id/btShare"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.556" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:foregroundTint="#FF0000"
+        android:onClick="clickFalar"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_speak"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btShare"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.556" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

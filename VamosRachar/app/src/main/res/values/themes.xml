@@ -12,5 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:outlineAmbientShadowColor">@color/dark</item>
+        <item name="android:tint" tools:ignore="DuplicateDefinition">@color/dark</item>
     </style>
 </resources>

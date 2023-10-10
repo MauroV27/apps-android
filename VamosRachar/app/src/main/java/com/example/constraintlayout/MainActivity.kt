@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Button
+import android.widget.ImageButton
 import java.util.*
 
 class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListener {
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         // Initialize TTS engine
         tts = TextToSpeech(this, this)
 
-        val btShare : Button = findViewById<Button>(R.id.btShare)
+        val btShare : ImageButton = findViewById<ImageButton>(R.id.btShare)
         btShare.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
@@ -87,7 +88,13 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
 
     fun clickFalar(v: View){
         val textResult = findViewById<TextView>(R.id.txtResult)
-        val textToSpech = "A conta ficou ${textResult.text.toString()} por pessoa"
+        var textToSpech : String
+
+        if ( textResult.text.toString() == "R$ 0,00" ){
+            textToSpech = "Defina o valor da conta e o número de pessoas a dividir."
+        } else {
+            textToSpech = "A conta ficou ${textResult.text.toString()} por pessoa"
+        }
         tts.speak(textToSpech, TextToSpeech.QUEUE_FLUSH, null, null)
     }
     override fun onDestroy() {
