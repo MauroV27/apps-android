@@ -13,7 +13,6 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.alcoolougasolina.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var percentual:Double = 0.7
     var isSwitchActive : Boolean = false
 
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -84,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         this.renderScreen()
     }
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private fun renderScreen(){
         // Code for read data in sharedPrefereces about percentual
         this.isSwitchActive = loadStatus()
@@ -119,20 +119,20 @@ class MainActivity : AppCompatActivity() {
             subMessage.text = ""
 
             if ( gasoline.text.isEmpty() or alcool.text.isEmpty() ){
-                subMessage.text = "Valores"
-                resultMessage.text = "Inválidos"
+                subMessage.text = getString(R.string.invalid_sub_msg_text)
+                resultMessage.text = getString(R.string.invalid_result_text)
                 return@OnClickListener
             }
 
             val valueGasoline: Double = gasoline.text.toString().toDouble()
             val valueAlcool : Double = alcool.text.toString().toDouble()
 
-            subMessage.text = "É recomendado:"
+            subMessage.text = getString(R.string.valid_sub_msg_text)
 
             if( valueAlcool <= this.percentual * valueGasoline ) {
-                resultMessage.text = "Álcool!"
+                resultMessage.text = getString(R.string.valid_result_text_alc)
             } else {
-                resultMessage.text = "Gasolina"
+                resultMessage.text = getString(R.string.valid_result_text_gas)
             }
         })
 

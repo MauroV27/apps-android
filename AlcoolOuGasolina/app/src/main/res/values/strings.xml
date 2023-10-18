@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Com qual combustível?</string>
+    <string name="logo_description">Um galão de combustivel vermelho no fundo branco</string>
+    <string name="title_app">Gasolina ou Álcool?</string>
+    <string name="text_alcool_edt">Preço do Álcool</string>
+    <string name="text_gasoline_edt">Preço da gasolina</string>
+    <string name="switch_text">75%</string>
+    <string name="text_btn_calculate">Calcular</string>
+
+    <!-- Texto chamado no código -->
+    <!-- Texto de resposta invalida -->
+    <string name="invalid_sub_msg_text">"Valores"</string>
+    <string name="invalid_result_text">"Inválidos"</string>
+
+    <!-- Texto de resposta valida -->
+    <string name="valid_sub_msg_text">"É recomendado:"</string>
+    <string name="valid_result_text_alc">"Álcool"</string>
+    <string name="valid_result_text_gas">"Gasolina"</string>
+
 </resources>
