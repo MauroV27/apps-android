@@ -5,38 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="550dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
+        android:id="@+id/linearLayout2"
         style="@style/MYStyle"
-        android:background="@drawable/rounded_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth="wrap_content">
 
-        <ImageView
-            style="@style/MYStyle"
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="uma bomba de gasolina ilustrando o app"
-            android:paddingVertical="10dp"
-            android:textAlignment="center"
-            app:srcCompat="@mipmap/ic_launcher_foreground" />
 
         <TextView
-            style="@style/MYStyle"
             android:id="@+id/titulo"
+            style="@style/MYStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="10dp"
             android:text="Gasolina ou Álcool?"
             android:textAlignment="center"
@@ -48,6 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="12dp"
             android:ems="10"
             android:hint="Preço do Álcool"
             android:inputType="numberDecimal"
@@ -69,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginHorizontal="110dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:checked="false"
             android:text="75%"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -82,25 +75,47 @@
             android:layout_marginVertical="20dp"
             android:text="Calcular" />
 
-        <TextView
-            style="@style/MYStyle"
-            android:id="@+id/subText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="12dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            />
-
-        <TextView
-            style="@style/MYStyle"
-            android:id="@+id/ResultMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:textAlignment="center"
-            android:textSize="28sp" />
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="139dp"
+        android:layout_marginVertical="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/subText"
+            style="@style/MYStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/ResultMessage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="40dp" />
+
+        <TextView
+            android:id="@+id/ResultMessage"
+            style="@style/MYStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="0dp"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subText"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="40dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
