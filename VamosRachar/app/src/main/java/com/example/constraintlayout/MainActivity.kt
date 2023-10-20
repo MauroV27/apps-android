@@ -2,7 +2,7 @@ package com.example.constraintlayout
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.icu.number.NumberFormatter
+//import android.icu.number.NumberFormatter
 import android.icu.text.DecimalFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +13,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Button
+//import android.widget.Button
 import android.widget.ImageButton
 import java.util.*
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         this.edtNumPeople.addTextChangedListener(this)
 
         val textResult = findViewById<TextView>(R.id.txtResult)
-        textResult.text = "R$ 0,00"
+        textResult.text = getString(R.string.cd_res_default_value)
 
         // Initialize TTS engine
         tts = TextToSpeech(this, this)
@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         btShare.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "A conta ficou ${textResult.text.toString()} por pessoa")
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.cd_account_resp_msg,textResult.text.toString()))
                 type = "text/plain"
             }
 
-            val shareIntent = Intent.createChooser(sendIntent, "Compartilhar conta")
+            val shareIntent = Intent.createChooser(sendIntent, getString(R.string.INTENT_share_count))
             startActivity(shareIntent)
         }
 
@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         Log.d ("PDM23", s.toString())
 
         if ( this.edtConta.text.isEmpty() || this.edtNumPeople.text.isEmpty() ) return
+        if ( this.edtConta.text.toString() == "." ) return // fixed bug when text is just "."
 
         val valueConta: Double = this.edtConta.text.toString().toDouble()
         val numPeople = this.edtNumPeople.text.toString().toInt()
@@ -83,17 +84,17 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         Log.d ("PDM23", value)
 
         val textResult = findViewById<TextView>(R.id.txtResult)
-        textResult.text = "R$ ${value}"
+        textResult.text = getString(R.string.cd_res_message_value, value)
     }
 
     fun clickFalar(v: View){
         val textResult = findViewById<TextView>(R.id.txtResult)
         var textToSpech : String
 
-        if ( textResult.text.toString() == "R$ 0,00" ){
-            textToSpech = "Defina o valor da conta e o número de pessoas a dividir."
+        if ( textResult.text.toString() == getString(R.string.cd_res_default_value) ){
+            textToSpech = getString(R.string.ACTION_text_to_spech_invalid)
         } else {
-            textToSpech = "A conta ficou ${textResult.text.toString()} por pessoa"
+            textToSpech = getString(R.string.cd_account_resp_msg,textResult.text.toString())
         }
         tts.speak(textToSpech, TextToSpeech.QUEUE_FLUSH, null, null)
     }

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Vamos Rachar!</string>
+
+    <!-- Strings in interface -->
+    <string name="title_text">Vamos rachar?</string>
+    <string name="edt_hint_count_value">Insira o valor da conta</string>
+    <string name="edt_hint_num_people">Número de pessoas</string>
+    <string name="text_label_secondary">Por pessoa</string>
+
+    <string name="INTENT_share_count">Compartilhar conta</string>
+    <string name="ACTION_text_to_spech_invalid">Defina o valor da conta e o número de pessoas a dividir.</string>
+
+    <!-- String in code -->
+    <string name="cd_res_default_value">R$ 0,00</string>
+    <string name="cd_money_type">R$</string>
+    <string name="cd_res_message_value">R$ %1$s</string>
+    <string name="cd_account_resp_msg">A conta ficou %1$s por pessoa.</string>
+
 </resources>
