@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Let\'s Share!</string>
+
+    <!-- Strings in interface -->
+    <string name="title_text">Shall we divide?</string>
+    <string name="edt_hint_count_value">Enter account value</string>
+    <string name="edt_hint_num_people">Number of persons</string>
+    <string name="text_label_secondary">Per person</string>
+
+    <string name="INTENT_share_count">Share account</string>
+    <string name="ACTION_text_to_spech_invalid">Set the bill amount and the number of people to share.</string>
+
+    <!-- String in code -->
+    <string name="cd_res_default_value">$ 0.00</string>
+    <string name="cd_money_type">$</string>
+    <string name="cd_res_message_value">$ %1$s</string>
+    <string name="cd_account_resp_msg">The bill was %1$s per person.</string>
+
+</resources>
