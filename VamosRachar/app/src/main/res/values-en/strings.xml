@@ -8,6 +8,9 @@
     <string name="edt_hint_num_people">Number of persons</string>
     <string name="text_label_secondary">Per person</string>
 
+    <string name="share_btn_text_description">Bluetooth icon, allows you to share the value presented in the text with other applications.</string>
+    <string name="audio_btn_text_description">Sound wave icon, allows you to speak out loud the bill amount per person.</string>
+
     <string name="INTENT_share_count">Share account</string>
     <string name="ACTION_text_to_spech_invalid">Set the bill amount and the number of people to share.</string>
 

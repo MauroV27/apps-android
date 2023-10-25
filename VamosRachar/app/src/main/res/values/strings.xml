@@ -7,6 +7,9 @@
     <string name="edt_hint_num_people">Número de pessoas</string>
     <string name="text_label_secondary">Por pessoa</string>
 
+    <string name="share_btn_text_description">Ícone de bluetooth, permite compartilhar o valor apresentado no texto com outros aplicativos.</string>
+    <string name="audio_btn_text_description">Ícone de onda de som, permite falar em voz alta o valor da conta por pessoa.</string>
+
     <string name="INTENT_share_count">Compartilhar conta</string>
     <string name="ACTION_text_to_spech_invalid">Defina o valor da conta e o número de pessoas a dividir.</string>
 
