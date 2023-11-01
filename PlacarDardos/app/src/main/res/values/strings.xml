@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Darts Score</string>
+
+    <string name="txt_btn_new_game">New Game</string>
+    <string name="txt_btn_history">History</string>
+    <string name="txt_btn_rules">Rules</string>
+
+    <!-- Configuration Screen -->
+    <string name="screen_name_config">Game Settings</string>
+    <string name="txt_tv_name_player_A">Player A</string>
+    <string name="txt_tv_name_player_B">Player B</string>
+
+    <string name="txt_tv_label_num_start_points">Initial Number of Points:</string>
+    <string name="txt_btn_start_game">Start</string>
+    <string name="txt_author_credits">Mauro Victor @2023</string>
+
+</resources>

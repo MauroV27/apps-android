@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PlacarDardos" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/light_primary</item>
+<!--        <item name="colorPrimaryVariant">@color/lig</item>-->
+        <item name="colorOnPrimary">@color/light_background</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/light_secondary</item>
+<!--        <item name="colorSecondaryVariant">@color/l</item>-->
+        <item name="colorOnSecondary">@color/light_secondary_text</item>
+
+        <item name="backgroundTint">@color/light_background</item>
+
+    </style>
+
+    <style name="Theme.PlacarDardos" parent="Base.Theme.PlacarDardos" />
+</resources>

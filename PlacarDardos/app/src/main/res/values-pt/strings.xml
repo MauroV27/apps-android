@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Placar de Dardos</string>
+    
+    <string name="txt_btn_new_game">Novo Jogo</string>
+    <string name="txt_btn_history">Histórico</string>
+    <string name="txt_btn_rules">Regras</string>
+
+    <!-- Configuration Screen -->
+    <string name="screen_name_config">Configurações do jogo</string>
+    <string name="txt_tv_name_player_A">Jogador A</string>
+    <string name="txt_tv_name_player_B">Jogador B</string>
+
+    <string name="txt_tv_label_num_start_points">N° inicial de pontos :</string>
+    <string name="txt_btn_start_game">Começar</string>
+    <string name="txt_author_credits">Mauro Victor @2023</string>
+
+</resources>
