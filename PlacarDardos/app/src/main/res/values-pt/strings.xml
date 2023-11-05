@@ -15,4 +15,13 @@
     <string name="txt_tv_label_num_start_points">N° inicial de pontos :</string>
     <string name="txt_btn_start_game">Começar</string>
 
+    <string name="date_format_code">dd-MM-yyyy</string>
+
+    <!-- Text for card -->
+    <string name="img_description">Imagem de um dardo vermelho.</string>
+    <!-- Card text format -->
+    <string name="txt_format_vs_players">%1$s VS %2$s</string>
+    <string name="txt_winner_message">%1$s Venceu por %2$s pontos.</string>
+    <string name="txt_scores_description_value">O número inicial de pontos desse jogo foi %1$s</string>
+
 </resources>

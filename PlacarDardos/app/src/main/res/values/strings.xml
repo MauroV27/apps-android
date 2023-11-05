@@ -14,4 +14,15 @@
     <string name="txt_tv_label_num_start_points">Initial Number of Points:</string>
     <string name="txt_btn_start_game">Start</string>
 
+    <string name="date_format_code">MM-dd-yyyy</string>
+
+    <!-- Text for card -->
+    <string name="img_description">Image of a red dart</string>
+    <!-- Card text format -->
+    <string name="txt_format_vs_players">%1$s VS %2$s</string>
+    <string name="txt_winner_message">%1$s won by %2$s points.</string>
+    <string name="txt_scores_description_value">The initial number of points in this game was %1$s</string>
+
+
+
 </resources>

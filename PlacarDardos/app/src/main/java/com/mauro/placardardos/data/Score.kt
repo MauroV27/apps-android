@@ -7,5 +7,7 @@ data class Score(
     var initScores:Int,
     var winner:String="None",
     var finalScorePlayerA:Int,
-    var finalScorePlayerB:Int
+    var finalScorePlayerB:Int,
+    var finalDistanceBtwPlayers : Int,
+    var dayTimeGameFinished : String
 ):Serializable
