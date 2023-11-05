@@ -31,7 +31,7 @@ class HistoryScreen : AppCompatActivity() {
         Log.d("PDM23", "Leu 2")
 
         // ArrayList enviado ao Adapter
-        val adapter = CardHistoryAdapter(data)
+        val adapter = CardHistoryAdapter(data, this)
 
         Log.d("PDM23", "Leu 3")
 

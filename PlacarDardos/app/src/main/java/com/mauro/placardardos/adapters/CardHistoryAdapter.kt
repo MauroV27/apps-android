@@ -1,5 +1,6 @@
 package com.mauro.placardardos.adapters
 
+import android.content.Context
 import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +13,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.mauro.placardardos.R
 import com.mauro.placardardos.data.Score
 
-class CardHistoryAdapter(private val mList: List<Score>) : RecyclerView.Adapter<CardHistoryAdapter.CardViewHolder>(){
+class CardHistoryAdapter(
+    private val mList: List<Score>,
+    private val context : Context) : RecyclerView.Adapter<CardHistoryAdapter.CardViewHolder>(){
 
     // Criação de Novos ViewHolders
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -37,23 +40,14 @@ class CardHistoryAdapter(private val mList: List<Score>) : RecyclerView.Adapter<
     // faz o bind de uma ViewHolder a um Objeto da Lista
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
 
-//        if ( position < 0 || position > this.itemCount){
-//            return
-//        }
-
         val lastScore = mList[position]
 
-        Log.d("PDM23", lastScore.toString())
+//        Log.d("PDM23", lastScore.toString())
 
-//        val playersStringVs : String = Resources.getSystem().getString(R.string.txt_format_vs_players)//, lastScore.playerA, lastScore.playerB)
-//        val playersStringVs : String = getResourceString(R.string.txt_format_vs_players)
-
-//        Log.d("PDM23", "String resp : $playersStringVs")
-//
-//        //alimentando os elementos a partir do objeto placar
+//      alimentando os elementos a partir do objeto placar
         holder.tvPLayerName.text = getResourceString(R.string.txt_format_vs_players).format(lastScore.playerA, lastScore.playerB)
         holder.tvWinTextResult.text = getResourceString(R.string.txt_winner_message).format(lastScore.winner, lastScore.finalDistanceBtwPlayers.toString())
-//
+
         holder.tvInitScore.text = lastScore.initScores.toString()
         holder.tvInitScore.contentDescription = getResourceString(R.string.txt_scores_description_value).format(lastScore.initScores.toString())
 
@@ -70,7 +64,8 @@ class CardHistoryAdapter(private val mList: List<Score>) : RecyclerView.Adapter<
     }
 
     private fun getResourceString(id: Int) : String {
-        return Resources.getSystem().getString(id)
+        // Não consegui acessar os recursos dos arquivos strings, então tive que passar o contexto do parent
+        return context.resources.getString(id)
     }
 
     // return the number of the items in the list
