@@ -14,7 +14,8 @@
 
     <string name="txt_tv_label_num_start_points">N° inicial de pontos :</string>
     <string name="txt_btn_start_game">Começar</string>
-
+    <string name="txt_darts_per_round">Dardos por rodada</string>
+    <string name="txt_darts_per_round_init_value">3</string>
     <string name="date_format_code">dd-MM-yyyy</string>
 
     <!-- Text for card -->
