@@ -19,6 +19,7 @@ class NewGameScreen : AppCompatActivity() {
         val namePlayerA : EditText = findViewById(R.id.etPlayerA)
         val namePlayerB : EditText = findViewById(R.id.etPlayerB)
         val initScoreValue : EditText = findViewById(R.id.editTextNumber)
+        val dartsPerTurn : EditText = findViewById(R.id.etNumDartsPerRound)
 
         val btnStartGame = findViewById<Button>(R.id.btnStartGame)
         btnStartGame.setOnClickListener{
@@ -38,8 +39,15 @@ class NewGameScreen : AppCompatActivity() {
                 currentDate
             )
 
+            var dartPerRoundValue : Int = dartsPerTurn.text.toString().toInt()
+
+            if ( dartsPerTurn.text.isEmpty() ||  dartPerRoundValue <= 0 ){
+                dartPerRoundValue = 3
+            }
+
             val intentScoreScreen = Intent(this, ScoreScreen::class.java).apply{
                 putExtra("score", gameScore)
+                putExtra("numPlaysByTurn", dartPerRoundValue)
             }
             startActivity(intentScoreScreen)
         }

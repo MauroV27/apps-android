@@ -22,9 +22,12 @@ class ScoreScreen : AppCompatActivity() {
     lateinit var score: Score
 
     private var playerAturn : Boolean = true
+    private var gameEnd : Boolean = false
     private var historyPlays = mutableListOf<Int>()
     private var numPlaysAPlayer : Int = 0
     private var numPlaysBPlayer : Int = 0
+
+    private var numPlaysByTurn : Int = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,7 @@ class ScoreScreen : AppCompatActivity() {
 //        score = getIntent().getExtras()?.getSerializable("score") as Score
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             score = intent.getSerializableExtra("score", Score::class.java)!!
+            numPlaysByTurn = intent.getIntExtra("numPlaysByTurn", 3)
         } else {
             score = getIntent().getExtras()?.getSerializable("score") as Score
         }
@@ -56,8 +60,8 @@ class ScoreScreen : AppCompatActivity() {
         }
 
         val icBtnTrash = findViewById<ImageButton>(R.id.imgBtnTrash)
-        icBtnBackHome.setOnClickListener{
-            // ClearCurrentGameSharedPreference
+        icBtnTrash.setOnClickListener{
+            this.clearCurrentGameSharedPreference()
 
             // Back to home :
             val intentGoHome = Intent(this, MainActivity::class.java).apply{}
@@ -67,17 +71,23 @@ class ScoreScreen : AppCompatActivity() {
         // Buttons in screen :
         val btnAddScore : Button = findViewById(R.id.btnAddScore)
         btnAddScore.setOnClickListener{
+
+            if ( this.gameEnd ) {
+                return@setOnClickListener
+            }
+
             val etScore : EditText = findViewById(R.id.etScoreInputValue)
             val value : Int = etScore.text.toString().toInt()
 
             // Forma como o historico é estruturado ( tudo em uma única pilha ) ele sabe quem é por ter a cada 3 jogadas
             // (0 1 2) (3 4 5) (6 7 8)
-            this.playerAturn = ( this.historyPlays.size / 3 ) % 2 == 0
+            this.playerAturn = ( this.historyPlays.size / this.numPlaysByTurn ) % 2 == 0
 
             this.historyPlays.add(value)
             updateScorePoints(value, -1)
 
             this.updateScoresLayout()
+            this.updateCurrentGameSharedPreference()
         }
 
         val btnBackScore : Button = findViewById(R.id.btnBackScore)
@@ -91,15 +101,15 @@ class ScoreScreen : AppCompatActivity() {
             val value = this.historyPlays.get(histSize)
             this.historyPlays.removeAt(histSize)
 
-            this.playerAturn = ( (histSize ) / 3 ) % 2 == 0
+            this.playerAturn = ( (histSize ) / this.numPlaysByTurn ) % 2 == 0
             updateScorePoints(value, 1)
 
             this.updateScoresLayout()
+            this.updateCurrentGameSharedPreference()
         }
 
         val btnSaveGame : Button = findViewById(R.id.btnSaveGame)
         btnSaveGame.setOnClickListener{
-            // ClearCurrentGameSharedPreference
 
             if ( this.score.finalScorePlayerA < this.score.finalScorePlayerB ){
                 this.score.winner = this.score.playerA
@@ -109,6 +119,7 @@ class ScoreScreen : AppCompatActivity() {
                 this.score.finalDistanceBtwPlayers = this.score.finalScorePlayerA - this.score.finalScorePlayerB
             }
 
+            this.clearCurrentGameSharedPreference()
             this.saveGame()
 
             // Move to hystory screen :
@@ -154,15 +165,53 @@ class ScoreScreen : AppCompatActivity() {
         tvPlayerATurnCounter.text = numPlaysAPlayer.toString()
         tvPlayerALastPoints.text = ""
 
-
         tvPlayerBScores.text = score.finalScorePlayerB.toString()
         tvPlayerBTurnCounter.text = numPlaysBPlayer.toString()
         tvPlayerBLastPoints.text = ""
 
+        val btnSaveGame = findViewById<Button>(R.id.btnSaveGame)
+
         if ( this.score.finalScorePlayerA <= 0 || this.score.finalScorePlayerB <= 0 ){
-            val btnSaveGame = findViewById<Button>(R.id.btnSaveGame)
             btnSaveGame.visibility = View.VISIBLE
+            this.gameEnd = true
+        } else {
+            btnSaveGame.visibility = View.INVISIBLE
+            this.gameEnd = false
         }
+    }
+
+    private fun updateCurrentGameSharedPreference(){
+        // Obtém uma instância do SharedPreferences
+        val sharedPreferences = getSharedPreferences("GameScorerStatus", Context.MODE_PRIVATE)
+
+        // Obtém um editor para modificar o SharedPreferences
+        val editor = sharedPreferences.edit()
+
+        // Salva o dado no SharedPreferences
+        //Escrita em Bytes de Um objeto Serializável
+        val dt= ByteArrayOutputStream()
+        val oos = ObjectOutputStream(dt)
+
+        oos.writeObject(this.score)
+        editor.putString("score_status", dt.toString(StandardCharsets.ISO_8859_1.name()))
+        editor.putString("darts_per_round", this.numPlaysByTurn.toString())
+
+        editor.apply()
+    }
+
+    private fun clearCurrentGameSharedPreference(){
+        // Obtém uma instância do SharedPreferences
+        val sharedPreferences = getSharedPreferences("GameScorerStatus", Context.MODE_PRIVATE)
+
+        // Obtém um editor para modificar o SharedPreferences
+        val editor = sharedPreferences.edit()
+
+        // Remove o dado associado à chave
+        editor.remove("score_status")
+        editor.remove("darts_per_round")
+
+        // Confirma a remoção
+        editor.apply()
     }
 
     fun saveGame() {
