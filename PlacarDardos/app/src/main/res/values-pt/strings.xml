@@ -24,4 +24,15 @@
     <string name="txt_winner_message">%1$s Venceu por %2$s pontos.</string>
     <string name="txt_scores_description_value">O número inicial de pontos desse jogo foi %1$s</string>
 
+    <!-- Text fro score screen -->
+    <string name="txt_title_score_screen">Placar</string>
+    <string name="txt_label_plauer_turn">Turno de %1$s</string>
+    <string name="txt_label_scores_turn">Pontos nessa rodada</string>
+    <string name="txt_edit_score_label">0</string>
+    <string name="btn_txt_add_score">Adicionar pontos</string>
+    <string name="btn_txt_backScore">Voltar última jogada</string>
+    <string name="btn_txt_saveGame">Salvar jogo no histórico</string>
+    <string name="img_btn_home_content_desc">Imagem de uma casa</string>
+    <string name="img_btn_trash_content_desc">Image de uma lata de lixo</string>
+
 </resources>

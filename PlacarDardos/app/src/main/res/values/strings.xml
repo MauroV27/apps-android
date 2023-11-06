@@ -23,6 +23,17 @@
     <string name="txt_winner_message">%1$s won by %2$s points.</string>
     <string name="txt_scores_description_value">The initial number of points in this game was %1$s</string>
 
+    <!-- Text fro score screen -->
+    <string name="txt_title_score_screen">Score</string>
+    <string name="txt_label_plauer_turn">Player %1$s Turn</string>
+    <string name="txt_label_scores_turn">Points in this round</string>
+    <string name="txt_edit_score_label">0</string>
+    <string name="btn_txt_add_score">Add Points</string>
+    <string name="btn_txt_backScore">Go Back to Last Move</string>
+    <string name="btn_txt_saveGame">Save Game</string>
+    <string name="img_btn_home_content_desc">Image of a home</string>
+    <string name="img_btn_trash_content_desc">Image of a trash can</string>
+
 
 
 </resources>
