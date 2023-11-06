@@ -35,4 +35,18 @@
     <string name="img_btn_home_content_desc">Imagem de uma casa</string>
     <string name="img_btn_trash_content_desc">Image de uma lata de lixo</string>
 
+    <!-- Rules screen : -->
+    <string name="txt_title_rules_screen">Regras</string>
+    <string name="txt_darts_game_rules">
+        <b>Regras do Jogo de Dardos</b>\n\n
+        1. O jogo é jogado em um alvo de dardos, com áreas numeradas de 1 a 20.\n\n
+        2. O objetivo é marcar pontos atirando dardos no alvo.\n\n
+        3. Cada jogador tem um número limitado de dardos por rodada.\n\n
+        4. O jogador ganha pontos com base na área do alvo em que o dardo atinge.\n\n
+        5. O jogador deve alcançar uma pontuação específica ou atingir zero pontos para vencer.\n\n
+        6. Existem áreas de bônus, como o "bullseye", que valem mais pontos.\n\n
+        7. A pontuação é acumulada ao longo do jogo até que um jogador vença.\n\n
+        Divirta-se jogando dardos!
+    </string>
+
 </resources>

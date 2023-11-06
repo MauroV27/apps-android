@@ -35,5 +35,20 @@
     <string name="img_btn_trash_content_desc">Image of a trash can</string>
 
 
+    <!-- Rules screen : -->
+    <string name="txt_title_rules_screen">Rules</string>
+    <string name="txt_darts_game_rules">
+        <b>Darts Game Rules</b>\n\n
+        1. The game is played on a dartboard, with numbered areas from 1 to 20.\n\n
+        2. The objective is to score points by throwing darts at the board.\n\n
+        3. Each player has a limited number of darts per round.\n\n
+        4. Players earn points based on the area of the board where the dart lands.\n\n
+        5. The player must either reach a specific score or hit zero points to win.\n\n
+        6. There are bonus areas, such as the "bullseye," which are worth more points.\n\n
+        7. Scores accumulate over the game until a player emerges as the winner.\n\n
+        Enjoy playing darts!
+    </string>
+
+
 
 </resources>
