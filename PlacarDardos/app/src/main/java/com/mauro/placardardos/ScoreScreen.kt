@@ -13,7 +13,9 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import com.mauro.placardardos.data.Score
+import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import java.nio.charset.StandardCharsets
 import java.util.Date
@@ -41,7 +43,10 @@ class ScoreScreen : AppCompatActivity() {
             score = getIntent().getExtras()?.getSerializable("score") as Score
         }
 
-        Log.d("PDM23", "SCore: $score")
+        // Load list of scores from SharedPreference :
+        val shPrefs = getSharedPreferences("GameScorerStatus", Context.MODE_PRIVATE)
+        this.numPlaysAPlayer = shPrefs.getString("playerA_plays", "0")?.toIntOrNull()!!
+        this.numPlaysBPlayer = shPrefs.getString("playerB_plays", "0")?.toIntOrNull()!!
 
         // Load player names :
         val tvNamePlayerA = findViewById<TextView>(R.id.tvNamePlayerA)
@@ -195,6 +200,8 @@ class ScoreScreen : AppCompatActivity() {
         oos.writeObject(this.score)
         editor.putString("score_status", dt.toString(StandardCharsets.ISO_8859_1.name()))
         editor.putString("darts_per_round", this.numPlaysByTurn.toString())
+        editor.putString("playerA_plays", this.numPlaysAPlayer.toString())
+        editor.putString("playerB_plays", this.numPlaysBPlayer.toString())
 
         editor.apply()
     }
@@ -209,6 +216,8 @@ class ScoreScreen : AppCompatActivity() {
         // Remove o dado associado à chave
         editor.remove("score_status")
         editor.remove("darts_per_round")
+        editor.remove("playerA_plays")
+        editor.remove("playerB_plays")
 
         // Confirma a remoção
         editor.apply()
