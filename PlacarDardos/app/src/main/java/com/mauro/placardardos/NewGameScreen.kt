@@ -29,6 +29,7 @@ class NewGameScreen : AppCompatActivity() {
             val currentDate = formatter.format(date)
 
             val gameScore : Score = Score(
+                0,
                 namePlayerA.text.toString(),
                 namePlayerB.text.toString(),
                 initScoreValue.text.toString().toInt(),

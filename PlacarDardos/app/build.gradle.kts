@@ -1,11 +1,13 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    kotlin("kapt") version "1.9.21"
 }
 
 android {
     namespace = "com.mauro.placardardos"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.mauro.placardardos"
@@ -36,6 +38,16 @@ android {
 }
 
 dependencies {
+
+    val roomVersion = "2.5.1"
+
+    // Room :
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+//    implementation("androidx.room:room-common:$roomVersion")
+//    implementation("androidx.room:room-ktx:$roomVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

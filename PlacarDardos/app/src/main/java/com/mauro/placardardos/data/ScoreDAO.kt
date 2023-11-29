@@ -12,6 +12,6 @@ interface ScoreDAO {
     @Query("DELETE FROM 'score_table'")
     fun deleteAll()
 
-    @Query("SELECT * FROM score_table")
+    @Query(value = "SELECT * FROM score_table")
     fun getAllScores(): List<Score>
 }
