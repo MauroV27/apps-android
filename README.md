@@ -15,4 +15,9 @@ Repositório com projetos de aplicativos Android Nativo, listando alguns projeto
 3. [Placar de dardos](/PlacarDardos/) :
 
     Aplicativo mais complexo, com multiplas telas, salvamento de dados em execução e integração com banco de dados para armazenamento de diversas partidas. Como o nome indica, trata-se de um placar para jogo de dardos entre 2 pessoas.
-    
+
+## Prints dos aplicativos : 
+
+| Alcool ou Gasolina? | Vamos Rachar | Placar de Dardos |
+| ----- | ----- | ----- |
+| ![Print da tela do aplicativo Alcool ou Gasolina](.github/assets/Com%20qual%20combustvel%20(%20light%20mode%20).jpg) | ![Print da tela do aplicativo Vamos Rachar](.github/assets/Vamos%20Rachar!%20(%20light%20mode%20).jpg) | ![Print da tela do aplicativo Placar de Dardos](.github/assets/Darts%20Score%20-%20Init%20Scren.jpg) 
